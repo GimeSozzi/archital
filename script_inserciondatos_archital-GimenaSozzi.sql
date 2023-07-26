@@ -1,4 +1,4 @@
--- DESAFIO ENTREGABLE: Scrip de inserción de datos
+-- DESAFIO ENTREGABLE: Script de inserción de datos
 -- Curso: SQL
 -- Alumna: Gimena Sozzi
 -- Comision: #43425
