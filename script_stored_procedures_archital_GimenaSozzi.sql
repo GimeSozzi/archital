@@ -159,7 +159,7 @@ DELIMITER ;
 -- SELECT * FROM archital.Profesional; -- Consulta anted de llamar al S.P.2
 -- CALL sp_insert_o_update_Cliente_Profesional(19, 'Camila', 'Luna','02236567890', 'Bº Belgrano III M3 C2, Mar del Plata','camiarq@arq.com', '90123456', 1,'M25897D', '/uploads/cv/arqcamilalcv.pdf', 9.0, NULL, NULL);
 -- SELECT * FROM archital.Persona; -- Consulta después de llamar al S.P.2
--- SELECT * FROM archital.Profesional;--Consulta después de llamar al S.P.2
+-- SELECT * FROM archital.Profesional; -- Consulta después de llamar al S.P.2
 
 
 

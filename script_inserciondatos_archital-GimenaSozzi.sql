@@ -243,6 +243,69 @@ CREATE TABLE IF NOT EXISTS archital.Mensajes (
             ON UPDATE CASCADE
 );
 
+-- Tabla LogProyecto
+CREATE TABLE IF NOT EXISTS archital.LogProyecto(
+    log_proyecto_ID INT PRIMARY KEY AUTO_INCREMENT,
+    proyecto_ID INT NOT NULL,
+    accion VARCHAR(10) NOT NULL,
+    titulo_anterior VARCHAR(100),
+    titulo_nuevo VARCHAR(100),
+    superficie_anterior DECIMAL(11, 2),
+    superficie_nueva DECIMAL(11, 2),
+    cantidad_plantas_anterior INT,
+    cantidad_plantas_nuevo INT,
+    plano_anterior VARCHAR(255),
+    plano_nuevo VARCHAR(255),
+    memoria_descriptiva_anterior TEXT,
+    memoria_descriptiva_nueva TEXT,
+    fecha_inicio_anterior DATE,
+    fecha_inicio_nueva DATE,
+    fecha_finalizacion_anterior DATE,
+    fecha_finalizacion_nueva DATE,
+    cliente_ID_anterior INT,
+    cliente_ID_nuevo INT,
+    profesional_ID_anterior INT,
+    profesional_ID_nuevo INT,
+    estado_proyecto_ID_anterior INT,
+    estado_proyecto_ID_nuevo INT,
+    tipologia_ID_anterior INT,
+    tipologia_ID_nueva INT,
+    fecha_registro DATE,
+    hora_registro TIME,
+    usuario_accion VARCHAR(50)
+    );
+
+-- Tabla LogProfesional
+CREATE TABLE IF NOT EXISTS archital.LogProfesional(
+    log_profesional_ID INT PRIMARY KEY AUTO_INCREMENT,
+    profesional_ID INT,
+    accion VARCHAR(50),
+    fecha_registro DATE,
+    hora_registro TIME,
+    usuario_accion VARCHAR(50)
+    );
+
+-- Tabla LogCliente   
+CREATE TABLE IF NOT EXISTS archital.LogCliente(
+    log_cliente_ID INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_ID INT,
+    accion VARCHAR(50),
+    fecha_registro DATE,
+    hora_registro TIME,
+    usuario_accion VARCHAR(50)
+    );
+
+-- Tabla LogSeguimiento
+CREATE TABLE IF NOT EXISTS archital.LogSeguimiento(
+    log_seguimiento_ID INT PRIMARY KEY AUTO_INCREMENT,
+    seguimiento_ID INT,
+    accion VARCHAR(50),
+    fecha_registro DATE,
+    hora_registro TIME,
+    usuario_accion VARCHAR(50)
+    );
+
+
 -- Inserción de datos en Tabla Persona
 INSERT INTO archital.Persona (nombre, apellido, telefono, direccion, email, dni) VALUES
     ('Juan', 'Pérez', '01112345678', 'San Martín 456, Buenos Aires', 'juan.perez@netarq.com', '12345678'),
@@ -542,6 +605,6 @@ INSERT INTO archital.Seguimiento (proyecto_ID, descripcion) VALUES
 INSERT INTO archital.Mensajes (proyecto_ID, persona_ID, asunto, texto_mensaje) VALUES
     (1, 3, 'Consulta honorarios', 'Hola, antes que me envies el presupuesto. Quisiera saber si cobras por hora o proyecto. Saludos'),
     (1, 1, 'Rta. Honorarios', 'Buenas tardes, mis honorarios son en base a los m2 del proyecto. Saludos Cordiales'),
-    (8, 8, '', 'El proyecto quedo expectacular. Felicitacione y muchas gracias! Saludos'),
+    (8, 8, '', 'El proyecto quedo expectacular. Felicitaciones y muchas gracias! Saludos'),
     (14, 15, 'Aumentar escala', 'Buen dia, descargué la imagen del anteproyecto peor la escala no me permite leer las cotas. Podrias enviarla en 1:20. Gracias');
 
