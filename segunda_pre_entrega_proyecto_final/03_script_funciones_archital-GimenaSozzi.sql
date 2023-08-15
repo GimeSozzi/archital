@@ -8,9 +8,9 @@
 
 DELIMITER $$
 
--- Funcion para obtener informacion de un proyecto por su ID:
+-- Funcion 1 "f_obtener_info_proyecto_por_id": se utiliza para obtener informacion de un proyecto por su ID:
 
-CREATE FUNCTION obtener_info_proyecto_por_id(proy_ID INT)
+CREATE FUNCTION f_obtener_info_proyecto_por_id(proy_ID INT)
 RETURNS TEXT
 READS SQL DATA
 BEGIN
@@ -37,9 +37,9 @@ BEGIN
 END $$
 
 
--- Funcion para obtener el honorario estimado de un proyecto ingresando el valor de la hora fecha estimada de inicio y fecha estimada de finalizacion:
+-- Funcion 2 "f_honorarios_estimado_proyecto": se utiliza para obtener el honorario estimado de un proyecto ingresando el valor de la hora fecha estimada de inicio y fecha estimada de finalizacion:
 
-CREATE FUNCTION honorarios_estimado_proyecto(valor_hora DECIMAL(11, 2), fecha_estimada_inicio DATE, fecha_estimada_finalizacion DATE) 
+CREATE FUNCTION f_honorarios_estimado_proyecto(valor_hora DECIMAL(11, 2), fecha_estimada_inicio DATE, fecha_estimada_finalizacion DATE) 
 RETURNS DECIMAL(11, 2)
 NO SQL
 BEGIN
@@ -67,5 +67,8 @@ DELIMITER ;
 
 -- Ejemplos de uso:
 
--- SELECT obtener_info_proyecto_por_id(5) AS informacion_de_proyecto;
+-- # Ejemplo Funcion 1 "f_obtener_info_proyecto_por_id":
+-- SELECT f_obtener_info_proyecto_por_id(5) AS informacion_de_proyecto;
+
+-- # Ejemplo Funcion 2 "f_honorarios_estimado_proyecto":
 -- SELECT honorarios_estimado_proyecto(35, '2023-08-01', '2023-10-05') AS honorario_estimado;

@@ -270,9 +270,9 @@ CREATE TABLE IF NOT EXISTS archital.LogProyecto(
     estado_proyecto_ID_nuevo INT,
     tipologia_ID_anterior INT,
     tipologia_ID_nueva INT,
-    fecha_registro DATE,
-    hora_registro TIME,
-    usuario_accion VARCHAR(50)
+    fecha_registro DATE NOT NULL,
+    hora_registro TIME NOT NULL,
+    usuario_accion VARCHAR(50) NOT NULL
     );
 
 -- Tabla LogProfesional
@@ -280,9 +280,9 @@ CREATE TABLE IF NOT EXISTS archital.LogProfesional(
     log_profesional_ID INT PRIMARY KEY AUTO_INCREMENT,
     profesional_ID INT,
     accion VARCHAR(50),
-    fecha_registro DATE,
-    hora_registro TIME,
-    usuario_accion VARCHAR(50)
+    fecha_registro DATE NOT NULL,
+    hora_registro TIME NOT NULL,
+    usuario_accion VARCHAR(50) NOT NULL
     );
 
 -- Tabla LogCliente   
@@ -290,9 +290,9 @@ CREATE TABLE IF NOT EXISTS archital.LogCliente(
     log_cliente_ID INT PRIMARY KEY AUTO_INCREMENT,
     cliente_ID INT,
     accion VARCHAR(50),
-    fecha_registro DATE,
-    hora_registro TIME,
-    usuario_accion VARCHAR(50)
+    fecha_registro DATE NOT NULL,
+    hora_registro TIME NOT NULL,
+    usuario_accion VARCHAR(50) NOT NULL
     );
 
 -- Tabla LogSeguimiento
@@ -300,9 +300,9 @@ CREATE TABLE IF NOT EXISTS archital.LogSeguimiento(
     log_seguimiento_ID INT PRIMARY KEY AUTO_INCREMENT,
     seguimiento_ID INT,
     accion VARCHAR(50),
-    fecha_registro DATE,
-    hora_registro TIME,
-    usuario_accion VARCHAR(50)
+    fecha_registro DATE NOT NULL,
+    hora_registro TIME NOT NULL,
+    usuario_accion VARCHAR(50) NOT NULL
     );
 
 

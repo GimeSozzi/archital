@@ -141,20 +141,20 @@ END $$
 
 DELIMITER ;
 
--- Ejemplos de llamadas:
+-- # Ejemplos de llamadas:
 
--- 1) Ejemplo de llamada al stored procedure 1 para obtener datos ordernados de la tabla "Proyecto" por campo "superficie" de tipo ASC:
+-- # 1) Ejemplo de llamada al stored procedure 1 para obtener datos ordernados de la tabla "Proyecto" por campo "superficie" de tipo ASC:
 -- CALL sp_obtener_datos_con_orden('Proyecto', 'superficie', 'ASC');
 -- CALL sp_obtener_datos_con_orden('Proyecto', 'cantidad_plantas', 'DESC');
 
--- 2) Ejemplo de llamada al stored procedure 2 para insertar un nuevo cliente:
+-- # 2) Ejemplo de llamada al stored procedure 2 para insertar un nuevo cliente:
 -- SELECT * FROM archital.Persona; -- Consulta antes de llamar al S.P.2
 -- SELECT * FROM archital.Cliente; -- Consulta antes de llamar al S.P.2
 -- CALL sp_insert_o_update_Cliente_Profesional(NULL, 'German', 'Ordonez', '261432145', 'Los Alamos 561, Mendoza', 'gordonez@email.com', '12345612', 0, NULL, NULL, NULL, 1, '20123456120');
 -- SELECT * FROM archital.Persona; -- Consulta después de llamar al S.P.2
 -- SELECT * FROM archital.Cliente; -- Consulta después de llamar al S.P.2
 
--- 3) Ejemplo de llamada al stored procedure 2 para actualizar la direccion, el email y el curriculum vitae de un profesional existente (persona_ID = 19):
+-- # 3) Ejemplo de llamada al stored procedure 2 para actualizar la direccion, el email y el curriculum vitae de un profesional existente (persona_ID = 19):
 -- SELECT * FROM archital.Persona; -- Consulta antes de llamar al S.P.2
 -- SELECT * FROM archital.Profesional; -- Consulta anted de llamar al S.P.2
 -- CALL sp_insert_o_update_Cliente_Profesional(19, 'Camila', 'Luna','02236567890', 'Bº Belgrano III M3 C2, Mar del Plata','camiarq@arq.com', '90123456', 1,'M25897D', '/uploads/cv/arqcamilalcv.pdf', 9.0, NULL, NULL);
