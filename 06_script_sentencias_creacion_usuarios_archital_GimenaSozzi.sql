@@ -18,6 +18,11 @@ GRANT SELECT ON archital.* TO 'archi_user1'@'localhost';
 -- Otorgar permisos de lectura, inserción y modificación a archi_user2 en todas las tablas de la base de base de datos
 GRANT SELECT, INSERT, UPDATE ON archital.* TO 'archi_user2'@'localhost';
 
+-- Verificar permisos establecidos para usuario: 'archi_user1'@'localhost'
+SHOW GRANTS FOR 'archi_user1'@'localhost'; 
+
+-- Verificar permisos establecidos para usuario: 'archi_user2'@'localhost'
+SHOW GRANTS FOR 'archi_user2'@'localhost'; 
 
 -- Ejemplos de uso usuario: 'archi_user1'@'localhost'
 --
