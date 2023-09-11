@@ -25,6 +25,15 @@ BEGIN
     -- Definir una variable para almacenar la parte de la consulta SQL relacionada con el ordenamiento
     DECLARE consulta_orden VARCHAR(255);
 
+    -- Definir un manejador de errores para SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        RESIGNAL;
+    END;
+
+    START TRANSACTION;
+
     -- Verificar si el parámetro 'campo_orden' no está vacío
     IF campo_orden != '' THEN
         -- Si hay un campo de ordenamiento válido, construir la parte de la consulta SQL para el ordenamiento
@@ -38,9 +47,12 @@ BEGIN
     SET @consulta_sql = CONCAT ('SELECT * FROM ', tabla_nombre, ' ', consulta_orden);
     
     -- Ejecutar la consulta SQL dinámica
-    PREPARE stmt FROM @consulta_sql;
-    EXECUTE stmt;
-    DEALLOCATE PREPARE stmt;
+    PREPARE mi_consulta FROM @consulta_sql;
+    EXECUTE mi_consulta;
+    DEALLOCATE PREPARE mi_consulta;
+
+    COMMIT;
+
 END $$
 
 
@@ -73,6 +85,15 @@ CREATE PROCEDURE sp_insert_o_update_Cliente_Profesional(
 )
 BEGIN
     DECLARE persona_existente_ID INT;
+
+    -- Definir un manejador de errores para SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        RESIGNAL;
+    END;
+
+    START TRANSACTION;
 
     -- Verificar si la persona ya existe por persona_ID, nombre, apellido y dni
     SELECT persona_ID INTO persona_existente_ID
@@ -136,6 +157,9 @@ BEGIN
             VALUES (persona_existente_ID, p_condicion_fiscal_ID, p_cuit);
         END IF;
     END IF;
+
+    COMMIT;
+
 END $$
 
 
